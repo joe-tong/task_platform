@@ -219,4 +219,10 @@ public class DateUtil extends DateUtils {
 		// long time = new Date().getTime()-parseDate("2012-11-19").getTime();
 		// System.out.println(time/(24*60*60*1000));
 	}
+	public static String format(Date date, String pattern) {
+
+		SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+
+		return sdf.format(date);
+	}
 }

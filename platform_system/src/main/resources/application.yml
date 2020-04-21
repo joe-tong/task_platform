@@ -44,7 +44,7 @@ mybatis-plus:
     field-strategy: NOT_EMPTY
     #下划线
     db-column-underline: true
-    #ˢ��mapper ��������
+    #mapper
     refresh-mapper: true
   configuration:
     # 如果查询结果中包含空值的列，则 MyBatis 在映射的时候，不会映射这个字段
@@ -54,6 +54,15 @@ mybatis-plus:
       # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     cache-enabled: false
+wx:
+  open:
+    config:
+      # 填写自己的 appid
+      appid: xxxxxxxxxxxxxxxxxxxxxxx
+      # 填写自己的 secret
+      secret: xxxxxxxxxxxxxxxxxxxxxxxxx
+      redirectUrl: http://www.xxx.com/wxCallBack
+      csrfKey: WeChat_WxJava_Demo
 
 
 
