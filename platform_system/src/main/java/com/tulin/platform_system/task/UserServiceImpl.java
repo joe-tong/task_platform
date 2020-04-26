@@ -5,9 +5,9 @@ import com.tulin.common.base.controller.ServerResponse;
 import com.tulin.common.enums.UserErrorEnum;
 import com.tulin.common.utlis.validator.Validator;
 import com.tulin.platform_model.dao.UserDao;
+import com.tulin.platform_model.dto.UserLoginDTO;
 import com.tulin.platform_model.model.User;
-import com.tulin.platform_model.request.UserLoginRequest;
-import com.tulin.platform_model.vo.UserLoginVO;
+import com.tulin.platform_model.vo.request.UserLoginRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +21,7 @@ public class UserServiceImpl extends Validator implements UserService {
     UserDao userDao;
 
     @Override
-    public ServerResponse<UserLoginVO> login(UserLoginRequest request) {
+    public ServerResponse<UserLoginDTO> login(UserLoginRequest request) {
         notNull("电话号码", request.getTel());
 
         User user = userDao.queryByUserName(request.getRealName());
@@ -30,7 +30,7 @@ public class UserServiceImpl extends Validator implements UserService {
             return ServerResponse.createByErrorEnum(UserErrorEnum.用户不存在);
         }
 
-        UserLoginVO vo = new UserLoginVO();
+        UserLoginDTO vo = new UserLoginDTO();
         vo.setNickName(user.getNickName());
         vo.setRealName(user.getRealName());
         vo.setTel(user.getTel());
